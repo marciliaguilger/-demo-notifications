@@ -13,7 +13,9 @@ builder.Services.AddSendGrid(o => o.ApiKey = sendGridApiKey);
 
 builder.Services.AddScoped<INotificationFactoryFacade, NotificationFactoryFacade>();
 
-builder.Services.AddScoped<ICommandHandler<NotifyUserCommand, Task>, NotifyUserCommandHandler>();
+builder.Services.AddScoped<NotifyUserCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<NotifyUserCommand, Task>, NotifyUserCommandHandlerWithLog>();
+
 builder.Services.AddScoped<IMediator, Mediator>();
 
 builder.Services.AddControllers();

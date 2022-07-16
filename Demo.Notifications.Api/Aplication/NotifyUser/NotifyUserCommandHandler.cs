@@ -1,4 +1,5 @@
 using Demo.Notifications.Api.Infra.Services;
+using Serilog;
 
 namespace Demo.Notifications.Api.Aplication.NotifyUser
 {
@@ -13,6 +14,8 @@ namespace Demo.Notifications.Api.Aplication.NotifyUser
 
         public async Task Handle(NotifyUserCommand command)
         {
+            
+            
             var notificationService = _factoryFacade.GetFacade(command.Type);
             await notificationService.SendAsync(command.Destination, command.Content);
         }
