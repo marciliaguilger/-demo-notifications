@@ -14,3 +14,7 @@ In this project I implemented the facade to abstract the use of SendGrid framewo
 
 The factory method is a creation pattern used to let you choose one of several implementations of an interface.
 In this project the pattern allows to choose between two implementations of notification: email or sms depending on the type that is passed by the client.
+
+# Mediator
+Mediator is the behavioral pattern used to reduce coupling between objects using a communication mediator.
+In this project I used the mediator to reduce the rules inside the controller, and it just needs to send the command and let the mediator decide which class will handle it.
