@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NR9s1FM+vwHOylF1C9hY7zGlmHWC9YhjzACzAvxU85k=",
+  "Source": "Demo.Notifications.Api",
+  "BasePath": "_content/Demo.Notifications.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
