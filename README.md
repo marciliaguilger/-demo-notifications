@@ -18,3 +18,7 @@ In this project the pattern allows to choose between two implementations of noti
 # Mediator
 Mediator is the behavioral pattern used to reduce coupling between objects using a communication mediator.
 In this project I used the mediator to reduce the rules inside the controller, and it just needs to send the command and let the mediator decide which class will handle it.
+
+# Decorator
+Decorator is a structural pattern, used to facilitate the addition of new behaviors using a wrapper containing the components of the object to be extended.
+I used to implement a log step before executing the main method on a separated object
