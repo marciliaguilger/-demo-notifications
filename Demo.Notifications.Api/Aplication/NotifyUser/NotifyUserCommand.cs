@@ -1,8 +1,8 @@
 using Demo.Notifications.Api.Domain.Enums;
 
-namespace Demo.Notifications.Api.Domain.Entities
+namespace Demo.Notifications.Api.Aplication.NotifyUser
 {
-    public class NotificationInput
+    public class NotifyUserCommand : ICommand
     {
         public string Destination { get; set; }
         public string Content { get; set; }

@@ -1,5 +1,8 @@
+using Demo.Notifications.Api.Aplication;
+using Demo.Notifications.Api.Aplication.NotifyUser;
 using Demo.Notifications.Api.Infra.Services;
 using SendGrid.Extensions.DependencyInjection;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +13,20 @@ builder.Services.AddSendGrid(o => o.ApiKey = sendGridApiKey);
 
 builder.Services.AddScoped<INotificationFactoryFacade, NotificationFactoryFacade>();
 
+builder.Services.AddScoped<ICommandHandler<NotifyUserCommand, Task>, NotifyUserCommandHandler>();
+builder.Services.AddScoped<IMediator, Mediator>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Host.ConfigureAppConfiguration((hostingContext, config) => {
+    Serilog.Log.Logger = new LoggerConfiguration()
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .CreateLogger();
+}).UseSerilog();
 
 var app = builder.Build();
 

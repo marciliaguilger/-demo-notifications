@@ -1,5 +1,6 @@
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using Serilog;
 
 namespace Demo.Notifications.Api.Infra.Services
 {
@@ -24,6 +25,8 @@ namespace Demo.Notifications.Api.Infra.Services
             message.AddTo(destination, destination);
 
             await _sendGridclient.SendEmailAsync(message);
+
+            Log.Information("Sending email");
         }
     }
 }
