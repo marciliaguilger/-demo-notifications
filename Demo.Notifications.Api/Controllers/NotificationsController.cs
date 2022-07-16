@@ -1,4 +1,5 @@
 using Demo.Notifications.Api.Domain.Entities;
+using Demo.Notifications.Api.Infra.Services;
 using Microsoft.AspNetCore.Mvc;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -10,29 +11,19 @@ namespace Demo.Notifications.Api.Controllers;
 public class NotificationsController : ControllerBase
 {
     private readonly ILogger<NotificationsController> _logger;
-    private readonly ISendGridClient _sendGridClient;
+    private readonly IEmailFacade _emailFacade;
 
-    public NotificationsController(ILogger<NotificationsController> logger, ISendGridClient sendGridClient)
+    public NotificationsController(ILogger<NotificationsController> logger, IEmailFacade emailFacade)
     {
         _logger = logger;
-        _sendGridClient = sendGridClient;
+        _emailFacade = emailFacade;
     }
 
     [HttpPost]
     public async  Task<IActionResult> Notify(NotificationInput notification){
 
-        var message = new SendGridMessage{
-            From = new EmailAddress("teste@gmail.com","Marci"),
-            Subject = "Testing e-mail POC",
-            PlainTextContent = $"Hello! {notification.Content}"
-
-        };
-
-        message.AddTo(notification.Destination, notification.Destination);
-        await _sendGridClient.SendEmailAsync(message);
+        await _emailFacade.SendAsync(notification.Destination, notification.Content);
 
         return Accepted();
     }
-
-    
 }
