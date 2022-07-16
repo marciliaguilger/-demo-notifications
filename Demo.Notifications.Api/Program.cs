@@ -8,7 +8,7 @@ var sendGridApiKey = builder.Configuration.GetSection("SendGripApiKey").Value;
 
 builder.Services.AddSendGrid(o => o.ApiKey = sendGridApiKey);
 
-builder.Services.AddScoped<IEmailFacade, EmailFacade>();
+builder.Services.AddScoped<INotificationFactoryFacade, NotificationFactoryFacade>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

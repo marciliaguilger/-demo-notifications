@@ -29,3 +29,13 @@ C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Newtonsoft.J
 C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\SendGrid.dll
 C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\SendGrid.Extensions.DependencyInjection.dll
 C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\StarkbankEcdsa.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sinks.File.dll

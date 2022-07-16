@@ -3,7 +3,7 @@ using SendGrid.Helpers.Mail;
 
 namespace Demo.Notifications.Api.Infra.Services
 {
-    public class EmailFacade : IEmailFacade
+    public class EmailFacade : INotificationFacade
     {
         private readonly ISendGridClient _sendGridclient;
 

@@ -1,4 +1,5 @@
 using Demo.Notifications.Api.Domain.Entities;
+using Demo.Notifications.Api.Domain.Enums;
 using Demo.Notifications.Api.Infra.Services;
 using Microsoft.AspNetCore.Mvc;
 using SendGrid;
@@ -10,20 +11,20 @@ namespace Demo.Notifications.Api.Controllers;
 [Route("api/notifications")]
 public class NotificationsController : ControllerBase
 {
-    private readonly ILogger<NotificationsController> _logger;
-    private readonly IEmailFacade _emailFacade;
+    private readonly INotificationFactoryFacade _notificationFactoryFacade;
 
-    public NotificationsController(ILogger<NotificationsController> logger, IEmailFacade emailFacade)
+    public NotificationsController(INotificationFactoryFacade notificationFactoryFacade)
     {
-        _logger = logger;
-        _emailFacade = emailFacade;
+        _notificationFactoryFacade = notificationFactoryFacade;
     }
 
     [HttpPost]
     public async  Task<IActionResult> Notify(NotificationInput notification){
 
-        await _emailFacade.SendAsync(notification.Destination, notification.Content);
-
+        var notificationFacade = _notificationFactoryFacade.GetFacade(notification.Type);
+        
+        await notificationFacade.SendAsync(notification.Destination, notification.Content);
+            
         return Accepted();
     }
 }
