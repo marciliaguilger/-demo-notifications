@@ -1,6 +1,7 @@
 using Demo.Notifications.Api.Aplication;
 using Demo.Notifications.Api.Aplication.NotifyUser;
 using Demo.Notifications.Api.Infra.Services;
+using MediatR;
 using SendGrid.Extensions.DependencyInjection;
 using Serilog;
 
@@ -13,10 +14,7 @@ builder.Services.AddSendGrid(o => o.ApiKey = sendGridApiKey);
 
 builder.Services.AddScoped<INotificationFactoryFacade, NotificationFactoryFacade>();
 
-builder.Services.AddScoped<NotifyUserCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<NotifyUserCommand, Task>, NotifyUserCommandHandlerWithLog>();
-
-builder.Services.AddScoped<IMediator, Mediator>();
+builder.Services.AddMediatR(typeof(NotifyUserCommand));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

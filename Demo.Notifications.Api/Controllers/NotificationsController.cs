@@ -1,5 +1,5 @@
-using Demo.Notifications.Api.Aplication;
 using Demo.Notifications.Api.Aplication.NotifyUser;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo.Notifications.Api.Controllers;

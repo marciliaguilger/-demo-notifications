@@ -1,22 +1,16 @@
+using MediatR.Pipeline;
 using Newtonsoft.Json;
 using Serilog;
 
 namespace Demo.Notifications.Api.Aplication.NotifyUser
 {
-    public class NotifyUserCommandHandlerWithLog : ICommandHandler<NotifyUserCommand, Task>
+    public class NotifyUserCommandHandlerWithLog : IRequestPreProcessor<NotifyUserCommand>
     {
-        private readonly NotifyUserCommandHandler _handler;
-
-        public NotifyUserCommandHandlerWithLog(NotifyUserCommandHandler handler)
+        public Task Process(NotifyUserCommand request, CancellationToken cancellationToken)
         {
-            _handler = handler;
-        }
+            Log.Information("Command {command} was handled with data {data}", request.GetType().Name, JsonConvert.SerializeObject(request)) ;
 
-        public async Task Handle(NotifyUserCommand command)
-        {
-            Log.Information("Command {command} was handled with data {data}",command.GetType().Name, JsonConvert.SerializeObject(command)) ;
-            
-            await _handler.Handle(command);
+            return Task.CompletedTask;
         }
     }
 }

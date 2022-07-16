@@ -39,3 +39,6 @@ C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sett
 C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\MediatR.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\repos\demo-notifications\Demo.Notifications.Api\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

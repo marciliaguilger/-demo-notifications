@@ -1,9 +1,10 @@
 using Demo.Notifications.Api.Infra.Services;
+using MediatR;
 using Serilog;
 
 namespace Demo.Notifications.Api.Aplication.NotifyUser
 {
-    public class NotifyUserCommandHandler : ICommandHandler<NotifyUserCommand, Task>
+    public class NotifyUserCommandHandler : IRequestHandler<NotifyUserCommand, Unit>
     {
         private readonly INotificationFactoryFacade _factoryFacade;
 
@@ -11,13 +12,12 @@ namespace Demo.Notifications.Api.Aplication.NotifyUser
         {
             _factoryFacade = factoryFacade;
         }
-
-        public async Task Handle(NotifyUserCommand command)
+        public async Task<Unit> Handle(NotifyUserCommand request, CancellationToken cancellationToken)
         {
-            
-            
-            var notificationService = _factoryFacade.GetFacade(command.Type);
-            await notificationService.SendAsync(command.Destination, command.Content);
+            var notificationService = _factoryFacade.GetFacade(request.Type);
+            await notificationService.SendAsync(request.Destination, request.Content);
+
+            return Unit.Value;
         }
     }
 }
