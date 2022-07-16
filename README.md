@@ -10,3 +10,7 @@ The patterns used in this project are:
 The facade patterns is a structural pattern, used to create simplified abstractions to interact with external libs, frameworks or complex classes.
 In this project I implemented the facade to abstract the use of SendGrid framework, creating an Interface with simplified method that receives only the information that matters to send a notification.
 
+# Factory Method
+
+The factory method is a creation pattern used to let you choose one of several implementations of an interface.
+In this project the pattern allows to choose between two implementations of notification: email or sms depending on the type that is passed by the client.
